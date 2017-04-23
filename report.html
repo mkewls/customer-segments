@@ -11782,7 +11782,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11837,7 +11837,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display a description of the dataset</span>
@@ -11964,7 +11964,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Select three indices of your choice you wish to sample from the dataset</span>
@@ -12093,20 +12093,20 @@ Establishment 0 is near the average on fresh products, grocery, detergents/paper
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
 
 <span class="c1"># TODO: Make a copy of the DataFrame, using the &#39;drop&#39; function to drop the given feature</span>
-<span class="n">new_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Milk&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">new_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Delicatessen&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># TODO: Split the data into training and testing sets using the given feature as the target</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">new_data</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">new_data</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Milk&#39;</span><span class="p">],</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 
 <span class="c1"># TODO: Create a decision tree regressor and fit it to the training set</span>
-<span class="n">regressor</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">()</span>
+<span class="n">regressor</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
 <span class="n">regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># TODO: Report the score of the prediction using the testing set</span>
@@ -12124,7 +12124,7 @@ Establishment 0 is near the average on fresh products, grocery, detergents/paper
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0.85324105258
+<pre>0.975834646612
 </pre>
 </div>
 </div>
@@ -12150,7 +12150,7 @@ Establishment 0 is near the average on fresh products, grocery, detergents/paper
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong>
-I attempted to predict Milk sales and my DTR scored a ~0.85. That's a fairly high R^2 score and likewise provides a good prediction capability based on the remaining features, i.e., there is a fairly strong correlation between Milk and some of the remaining features. While not entirely clear at this point in my exploration of the data and its feature correlations, my intuition is that Milk is not needed to make predictions of customers' spending habits given that the other features serve as strong correlations to Milk purchases. Or in other words, I can still make strong predictions about customers' spending habits without knowing their Milk purchases because of the correlation. Conversely, it may turn out that Milk is a better category to use for making predictions, if it is correlated to a variety of other features. In that case, we can use Milk in place of those other features to make predictions on less data (thus simplifying our model).</p>
+I attempted to predict Delicatessen sales and my DTR scored a ~0.975. That's an extremely high R^2 score and likewise provides a good prediction capability based on the remaining features, i.e., there is a fairly strong correlation between Delicatessen and some of the remaining features. This clear correlation means that I can still make strong predictions about customers' spending habits without knowing their Deli purchases because those purchases can be predicted with high confidence from other features.</p>
 
 </div>
 </div>
@@ -12167,7 +12167,7 @@ I attempted to predict Milk sales and my DTR scored a ~0.85. That's a fairly hig
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Produce a scatter matrix for each pair of features in the data</span>
@@ -13663,7 +13663,7 @@ OVKGYRiGYRiGYRjL5P8Hlbw/WCOgmG0AAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Scale the data using the natural logarithm</span>
@@ -17102,7 +17102,7 @@ DIZVwf8Dg6CLV/mtF5UAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display the log-transformed sample data</span>
@@ -17193,7 +17193,7 @@ Once you have performed this implementation, the dataset will be stored in the v
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># For each feature find the data points with extreme high or low values</span>
@@ -17898,7 +17898,7 @@ Yes, there were five data points by my count that were definable as outliers for
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
@@ -18253,8 +18253,9 @@ QmCC
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong>
 Nearly 0.71 or 71% of the total variance is explained by the first and second principal component with the first four principal components explaining about 93% of the total variance, the vast majority.</p>
-<p>The first principal component, dimension 1, indicates that an increase in its value will increase both fresh and frozen products at approximately the same rate (~0.2), whereas the other products will decrease, with detergents/paper decreasing at the highest rate (abou -0.8). Meanwhile, the second principal component, dimension 2, indicates that an increase in its value will decrease all the product categories with fresh products decreasing at the highest rate and detergents/paper decreasing at the lowest rate. The third principal component, dimension 3, indicates that an increase in its value will also greatly decrease fresh products at a high rate, with most other products also decreasing, except frozen and deli products, with the latter having the highest rate of increase (~0.6). Finally, the fourth principal component, dimension 4, indicates an increase in its value with increase all products except fresh and deli, with deli products have the highest rate of decrease (about -0.5) and frozen far outpacing other rates of increase with a rate of ~0.8.</p>
-<p>Together, I would interpret these four principal components as showing that milk and grocery spending are generally inelastic and that customers will spend on these products irrespective of their spending on other products. Additionally, I would interpret that customers who spend more on fresh and frozen products are likely to spend less on other product categories, especially detergents/paper, with some exceptions where fresh and frozen products themselves are inversely correlated. I would also note that it appears that when customers have less to spend, the categories that are most impacted are fresh, frozen, and deli products, whereas detergent/soap products join milk and grocery as more inelastic.</p>
+<p>The first principal component, dimension 1, indicates that Milk, Grocery, and Detergents/Paper correlate at a fairly high rate of increase/decrease with value changes to that dimension. This could represent a customer group that spends on these three products together, so we would expect high purchases of one to predict high purchases of the others for those in this class.</p>
+<p>In the second principal component, dimension 2, Fresh, Frozen, and Deli products correlate at a greater than 0.5 weight of unit change. Likewise, we would expect this customer group's spending behavior to show predictable trends in purchases among these three items.</p>
+<p>Fresh and Deli products are inversely correlated at high weights in the third principal component, dimension 3, and Frozen and Deli are likewise inversely correlated in the fourth, dimension 4. In these respective customer groups, we would expect customer spending in Fresh products and Frozen products respectively to show decreases in Deli product spending.</p>
 
 </div>
 </div>
@@ -18271,7 +18272,7 @@ Nearly 0.71 or 71% of the total variance is explained by the first and second pr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display sample log-data after having a PCA transformation applied</span>
@@ -18359,7 +18360,7 @@ Nearly 0.71 or 71% of the total variance is explained by the first and second pr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Apply PCA by fitting the good data with only two dimensions</span>
@@ -18393,7 +18394,7 @@ Nearly 0.71 or 71% of the total variance is explained by the first and second pr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display sample log-data after applying PCA transformation in two dimensions</span>
@@ -18460,7 +18461,7 @@ Nearly 0.71 or 71% of the total variance is explained by the first and second pr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Create a biplot</span>
@@ -18475,11 +18476,11 @@ Nearly 0.71 or 71% of the total variance is explained by the first and second pr
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[29]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x111ef96d0&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x109129f10&gt;</pre>
 </div>
 
 </div>
@@ -19610,7 +19611,7 @@ REREREREPoxJHRERERERkQ9jUkdEREREROTD/j+v41ZchJKQMAAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
@@ -19686,7 +19687,7 @@ REREREREPoxJHRERERERkQ9jUkdEREREROTD/j+v41ZchJKQMAAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display the results of the clustering from implementation</span>
@@ -20353,7 +20354,7 @@ AB2HQAgAAABAxyEQAgAAANBxCIQAAAAAdJz/Hw6bEKSamHfsAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Inverse transform the centers</span>
@@ -20367,6 +20368,10 @@ AB2HQAgAAABAxyEQAgAAANBxCIQAAAAAdJz/Hw6bEKSamHfsAAAAAElFTkSuQmCC
 <span class="n">true_centers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">true_centers</span><span class="p">),</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <span class="n">true_centers</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">segments</span>
 <span class="n">display</span><span class="p">(</span><span class="n">true_centers</span><span class="p">)</span>
+
+<span class="c1"># Bar plot true centers</span>
+<span class="n">true_centers</span> <span class="o">=</span> <span class="n">true_centers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="s1">&#39;50%&#39;</span><span class="p">])</span>
+<span class="n">true_centers</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -20419,6 +20424,233 @@ AB2HQAgAAABAxyEQAgAAANBxCIQAAAAAdJz/Hw6bEKSamHfsAAAAAElFTkSuQmCC
 
 </div>
 
+<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x108c1f310&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+pZdeokuXLsyYMYN7772XOXPmsHbtWnr16kXv3r0BGDVqFDfffDNdu3bl+eef53vf+x7TplV8Y7x0
+6VKeeuopFixYQFlZGccff/wmMXz/+9/n3HPP5aSTTuKTTz5h3bp1W3zX8vJy/vSnPzFkyBAAbrvt
+Ntq2bcvq1avp06cP3/jGN2jXrh0ffvghpaWlXHvttVx66aX87Gc/44YbbthszEuWLOGZZ56hqKio
+Xn8/JrWSJEmSVEtTpkxh7ty5laOjK1euZOHChTRr1qzW9fr27UuXLl0AePrppzn66KNp3rw5zZs3
+5+tf/zoAq1at4plnnmHYsGGVz/z4448rj4855hh22mknDjjgAN56661qYz3kkEO4/PLLWbJkCccd
+dxxdu3at8b1Wr15Nz549gYqR2tNOOw2A6667jvvuuw+AN954g4ULF9KuXTt22mknvvWtbwFw8skn
+c9xxx20x5mHDhtV7QgsmtZIkSZK0Wa+//jpFRUXssccepJS4/vrrOfLIIz9TZ/r06Z8531y9li1b
+brHN9evXs9tuu1V+57qxnXfe+TNtVefEE0+kX79+PPzwwwwdOpRbbrmFgQOrX/256je1VWOdOnUq
+zz77LC1atODwww9nzZo11d4fEVuMuTbvvS3qlNRGxHnA6UAC5gGnAnsBE4F2wIvAKSmlTyJiZ+AO
+oDfwDvCtlNLi7DkXAqcB64BzUkqP1iUuSZIkSTuGXG/Bs3z5cs4880zOPvtsIoIjjzySm266iYED
+B9K0aVNeffVVOnbsyK677soHH3xQeV9N9TbWv39/zjjjDC688ELKy8t56KGHGDVqFJ/73Ofo0qUL
+99xzD8OGDSOlxNy5cykpKakx1o1jeP3119l3330555xz+Oc//8ncuXNrTGqrs3LlStq0aUOLFi1Y
+sGABzz33XOW19evXM3nyZIYPH86dd97JoYceuk0x14dtTmojoiNwDnBASml1RNwNDAeGAtemlCZG
+xM1UJKs3Zf++m1L6YkQMB64EvhURB2T3HQjsDUyNiC+llLY84VuSJEmS6tmGqbhr166lSZMmnHLK
+KZUrAZ9++uksXryYXr16kVKiffv23H///fTo0YOioiJKSkoYOXIk5557brX1NtanTx/Kysro0aMH
+HTp0oLi4mNatWwMwYcIEvvvd7zJ27FjWrl3L8OHDN5sgbhzDxx9/zO9+9zuaNm3KnnvuyX/+539u
+1f8OQ4YM4eabb6Zbt27st99+HHzwwZXXWrZsyQsvvMDYsWPZY489mDRp0jbFXB+ipqHqLd5YkdQ+
+B5QA7wP3A9cDE4A9U0rlEXEIcElK6ciIeDQ7fjYimgD/BtoDYwBSSj/PnltZb3Ptl5aWppkzZ25T
+7Mo/xbcXN3gb80bMa/A2JG3K7TIkNWb2Udvf/Pnz6datW67D2K5WrVpFq1at+OijjzjssMMYN24c
+vXr1ynVYm9WqVStWrVpVb8+r7vceES+mlEq3dO82j9SmlN6MiKuBfwKrgSlUTDd+L6VUnlVbAmwY
+Y+8IvJHdWx4RK6mYorwhOaaaeyRJkiRphzZq1CheeeUV1qxZw4gRIxp9QtvY1GX6cRvgaKAL8B5w
+DzCknuKqqc1RwCiAz3/+8w3ZlCRJkiRtF3feeed2aeedd95h0KBBm5Q//vjjtGvXbqueVZ+jtHVV
+l4Wi/i/w95TScoCI+APQH9gtIppko7WdgDez+m8C+wBLsunHralYMGpD+QZV7/mMlNI4YBxUTD+u
+Q+yqT5e0bvg2uvhHDEmSJKku2rVrV+PKxPlspzrc+0/g4IhoEREBDAJeAZ4Ajs/qjAAeyI4fzM7J
+rk9LFR/0PggMj4idI6IL0BV4oQ5xSZIkSZIKRF2+qX0+IiYDs4By4K9UjKI+DEyMiLFZ2a3ZLbcC
+v4uIRcAKKlY8JqX0crZy8ivZc85y5WNJkiRJUm3UaZ/alNLFwMUbFb8O9K2m7hpgWA3PuRy4vC6x
+SJIkSZIKT52SWkmSJElqSL/81lH1+rwfTnpoi3WKioooLi6u3Kf229/+Nueddx477VTz15uLFy/m
+qKOO4qWXXmLmzJnccccdXHfddVsd369+9StGjRpFixYttvreQmVSK0mSJElV7LLLLpULKi1btowT
+TzyR999/n5/97Ge1ur+0tJTS0i1ur1qtX/3qV5x88skmtVuhLgtFSZIkSdIObY899mDcuHHccMMN
+pJRYt24do0ePpk+fPvTo0YNbbrllk3umT5/OUUdVjDCvWrWKU089leLiYnr06MG9994LwHe/+11K
+S0s58MADufjiii86r7vuOv71r3/x1a9+la9+9asATJkyhUMOOYRevXoxbNiwyq10xowZwwEHHECP
+Hj340Y9+BMA999xD9+7dKSkp4bDDDgOoMd7p06dz+OGHc/zxx7P//vtz0kknUbGOb/5xpFaSJEmS
+NmPfffdl3bp1LFu2jAceeIDWrVszY8YMPv74Y/r3788RRxxBxYYwm7rsssto3bo18+bNA+Ddd98F
+4PLLL6dt27asW7eOQYMGMXfuXM455xyuueYannjiCXbffXfefvttxo4dy9SpU2nZsiVXXnkl11xz
+DWeddRb33XcfCxYsICJ47733ALj00kt59NFH6dixY2XZrbfeWm28AH/96195+eWX2Xvvvenfvz9P
+P/00hx56aEP/z1nvTGolSZIkqZamTJnC3LlzmTx5MgArV65k4cKFfOlLX6q2/tSpU5k4cWLleZs2
+bQC4++67GTduHOXl5SxdupRXXnmFHj16fObe5557jldeeYX+/fsD8Mknn3DIIYfQunVrmjdvzmmn
+ncZRRx1VOSrcv39/Ro4cyTe/+U2OO+64zcbbrFkz+vbtS6dOnQDo2bMnixcvNqmVJEmSpB3N66+/
+TlFREXvssQcpJa6//nqOPPLIz9RZvHhxrZ/397//nauvvpoZM2bQpk0bRo4cyZo1azapl1Ji8ODB
+3HXXXZtce+GFF3j88ceZPHkyN9xwA9OmTePmm2/m+eef5+GHH6Z37968+OKLNcY7ffp0dt5558rz
+oqIiysvLa/0OjYnf1EqSJElSDZYvX86ZZ57J2WefTURw5JFHctNNN7F27VoAXn31VT788MMa7x88
+eDA33nhj5fm7777L+++/T8uWLWndujVvvfUWf/rTnyqv77rrrnzwwQcAHHzwwTz99NMsWrQIgA8/
+/JBXX32VVatWsXLlSoYOHcq1117LnDlzAHjttdfo168fl156Ke3bt+eNN97Y6njzkSO1kiRJkhqt
+2mzBU99Wr15Nz549K7f0OeWUUzj//PMBOP3001m8eDG9evUipUT79u25//77a3zWRRddxFlnnUX3
+7t0pKiri4osv5rjjjuOggw5i//33Z5999qmcXgwwatQohgwZwt57780TTzzB+PHjOeGEE/j4448B
+GDt2LLvuuitHH300a9asIaXENddcA8Do0aNZuHAhKSUGDRpESUkJPXr02Kp481Hk6wpXpaWlaebM
+mbkOQwCXtG7wJoq7fL7B25g3Yl6DtyFpU53HPNzgbSy+4msN3oakHZN91PY3f/58unXrluswtJ1V
+93uPiBdTSlvcG8npx5IkSZKkvGVSK0mSJEnKWya1kiRJkhqVfP1EUtumrr9vk1pJkiRJjUbz5s15
+5513TGwLREqJd955h+bNm2/zM1z9WJIkSVKj0alTJ5YsWcLy5ctzHYq2k+bNm9OpU6dtvt+kVpIk
+SVKj0bRpU7p06ZLrMJRHnH4sSZIkScpbJrWSJEmSpLxlUitJkiRJylsmtZIkSZKkvGVSK0mSJEnK
+Wya1kiRJkqS8ZVIrSZIkScpbJrWSJEmSpLxlUitJkiRJylsmtZIkSZKkvFWnpDYidouIyRGxICLm
+R8QhEdE2Ih6LiIXZv22yuhER10XEooiYGxG9qjxnRFZ/YUSMqOtLSZIkSZIKQ11Han8N/DmltD9Q
+AswHxgCPp5S6Ao9n5wD/AXTNfkYBNwFERFvgYqAf0Be4eEMiLEmSJEnS5mxzUhsRrYHDgFsBUkqf
+pJTeA44Gbs+q3Q4ckx0fDdyRKjwH7BYRewFHAo+llFaklN4FHgOGbGtckiRJkqTCUZeR2i7AcuC3
+EfHXiPhNRLQEOqSUlmZ1/g10yI47Am9UuX9JVlZTuSRJkiRJm1WXpLYJ0Au4KaV0EPAhn041BiCl
+lIBUhzY+IyJGRcTMiJi5fPny+nqsJEmSJClP1SWpXQIsSSk9n51PpiLJfSubVkz277Ls+pvAPlXu
+75SV1VS+iZTSuJRSaUqptH379nUIXZIkSZK0I9jmpDal9G/gjYjYLysaBLwCPAhsWMF4BPBAdvwg
+8O1sFeSDgZXZNOVHgSMiok22QNQRWZkkSZIkSZvVpI73fx+YEBHNgNeBU6lIlO+OiNOAfwDfzOo+
+AgwFFgEfZXVJKa2IiMuAGVm9S1NKK+oYlyRJkiSpANQpqU0pzQZKq7k0qJq6CTirhufcBtxWl1gk
+SZIkSYWnrvvUSpIkSZKUMya1kiRJkqS8ZVIrSZIkScpbJrWSJEmSpLxlUitJkiRJylsmtZIkSZKk
+vGVSK0mSJEnKWya1kiRJkqS8ZVIrSZIkScpbJrWSJEmSpLxlUitJkiRJylsmtZIkSZKkvGVSK0mS
+JEnKWya1kiRJkqS8ZVIrSZIkScpbJrWSJEmSpLzVJNcBSJIkSWpYxbcXN3gb80bMa/A2pOo4UitJ
+kiRJylsmtZIkSZKkvGVSK0mSJEnKW35TK20nN545rcHbOOvmgQ3ehiRJktSYOFIrSZIkScpbJrWS
+JEmSpLxlUitJkiRJylsmtZIkSZKkvGVSK0mSJEnKW3VOaiOiKCL+GhEPZeddIuL5iFgUEZMiollW
+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
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -20440,7 +20672,14 @@ AB2HQAgAAABAxyEQAgAAANBxCIQAAAAAdJz/Hw6bEKSamHfsAAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>Considering all the available data and statistics, I would consider the two customers as establishments that purchase products at wholesale to retail to their customers (Segment 0) and those that purchase products for food preparation and service (i.e., restaurants) to their customers (Segment 1). I arrived at this conclusion by considering that Segment 0 purchases significantly more milk and detergents/papers, which are both staples that are frequently retailed at grocery stores. Segment 1 meanwhile purchases greater quantities of fresh and frozen food, which are their primary "ingredients" for making their prepared food product. Likewise, they have much less need for milk, grocery, and detergent/paper than the retail stores.</p>
+<p>Considering all the available data and statistics, I would consider the two customers as establishments that purchase products at wholesale to retail to their customers (Segment 0) and those that purchase products for food preparation and service (i.e., restaurants) to their customers (Segment 1).</p>
+<p>I arrived at this conclusion regarding Segment 0 considering the following factors:
+(1) Purchases in this segment are above average for Milk, Grocery, and Detergent/Papers, all items that are usually found in a retail food store.
+(2) To put a finer point on (1), purchases for Milk, Grocery, and Detergent/Papers products are all in the highest quartile for these categories.
+(3) In the negative, purchases in this segment are in the second quartile, near to the boundary with the first quartile for Fresh and Frozen products, both of which are sold in a retail context, but at a lower volume than in a food service context.</p>
+<p>Similarly, I arrived at this conclusion regarding Segment 1 considering the following factors:
+(1) Purchases in this segment are in the third quartile for Fresh and Frozen products, the key "ingredients" for food preparation and service.
+(2) In the negative, purchases in this segment are barely in the second quartile for Milk, Grocery, and Detergents/Paper, representing a minimal "consumption" of these products by consumers.</p>
 
 </div>
 </div>
@@ -20458,12 +20697,14 @@ AB2HQAgAAABAxyEQAgAAANBxCIQAAAAAdJz/Hw6bEKSamHfsAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display the predictions</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sample_preds</span><span class="p">):</span>
     <span class="k">print</span> <span class="s2">&quot;Sample point&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;predicted to be in Cluster&quot;</span><span class="p">,</span> <span class="n">pred</span>
+    <span class="k">print</span> <span class="s1">&#39;The distance between sample point {} and center of cluster {}:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">pred</span><span class="p">)</span>
+    <span class="k">print</span> <span class="p">(</span><span class="n">samples</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">true_centers</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">pred</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -20477,8 +20718,32 @@ AB2HQAgAAABAxyEQAgAAANBxCIQAAAAAdJz/Hw6bEKSamHfsAAAAAElFTkSuQmCC
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Sample point 0 predicted to be in Cluster 0
+The distance between sample point 0 and center of cluster 0:
+Fresh               8664.0
+Milk                1756.0
+Grocery            -4543.0
+Frozen              -738.0
+Detergents_Paper   -1887.0
+Delicatessen         302.0
+dtype: float64
 Sample point 1 predicted to be in Cluster 0
+The distance between sample point 1 and center of cluster 0:
+Fresh               7589.0
+Milk                -121.0
+Grocery               40.0
+Frozen              2300.0
+Detergents_Paper    3474.0
+Delicatessen        1993.0
+dtype: float64
 Sample point 2 predicted to be in Cluster 1
+The distance between sample point 2 and center of cluster 1:
+Fresh              -5676.0
+Milk                  96.0
+Grocery             -678.0
+Frozen              -358.0
+Detergents_Paper     -60.0
+Delicatessen          29.0
+dtype: float64
 </pre>
 </div>
 </div>
@@ -20493,7 +20758,9 @@ Sample point 2 predicted to be in Cluster 1
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>Yes, I believe the predictions are consistent with the data for each sample point. Indeed, at the beginning of this project, I considered sample points 0 and 1 to be markets (albeit of different types/size) and sample point 2 to be a food service establishment.</p>
+<p>For Sample Point 0, customer Segment 0 is likely the best representation, consistent with the prediction. It's purchases are somewhat of an outlier to the general trend of Segment 0 given its Fresh product spend's locus in the third quartile, however, its first quartile Frozen and fourth quartile Milk spends are good indications of a fresh food retail market. It also has relatively good proximity to the cluster center, and certainly so when considering the Segment 1 cluster.</p>
+<p>For Sample Point 1, customer Segment 0 is likely the best representation, consistent with the prediction. Again we have some oddness looking at the data, with both Fresh and Frozen product spends in the third quartile. But, when looking at the other information we can clearly see that this is a retailer with its Grocery and Detergent/Soaps spending in the upper quartile. Additionally, we can see a very close proximity to the center in the Grocery feature.</p>
+<p>For Sample Point 2, customer Segment 1 is likely the best representation, consistent with the prediction. While its spending across the board is relatively low, it shows strong indications of not being a retailer and instead being a food service establishment with a first quartile spend on Detergent/Soaps yet a third quartile spend on Frozen products. When looking at its proximity to the center of that cluster, we can see closeness across three features.</p>
 
 </div>
 </div>
@@ -20534,7 +20801,7 @@ Sample point 2 predicted to be in Cluster 1
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>As an adviser to the wholesale distributor, I would note that customer segment 1, those that use significantly more fresh product than segment 0, are likely to be more adversely affected by the minimized delivery schedule. (Fewer deliveries means fresh food may not be so fresh when re-sold, which could harm that customer's business.) Likewise, I would suggest a smaller sample of segment 1 customers be exposed to the minimized delivery schedule as part of any A/B test, given the logical assumption from its product profile that those customers would more than likely have a negative response to that change.</p>
+<p>As an adviser to the wholesale distributor, I would note that customer segment 1, those that use significantly more fresh product than segment 0, are likely to be more adversely affected by the minimized delivery schedule. (Fewer deliveries means fresh food may not be so fresh when re-sold, which could harm that customer's business.) As a start, I would recommend that each segment have its own control/test group and consistent with a hypothesis of an adverse affect for segment 1, I would suggest a smaller test group of segment 1 customers be exposed to the minimized delivery schedule. In this way, the wholesaler can conduct the A/B test without harming too many real customers (and potentially losing them) should our hypothesis prove true.</p>
 
 </div>
 </div>
@@ -20575,7 +20842,7 @@ Sample point 2 predicted to be in Cluster 1
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display the clustering results based on &#39;Channel&#39; data</span>
