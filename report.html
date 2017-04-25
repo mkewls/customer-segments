@@ -12093,7 +12093,7 @@ Establishment 0 is near the average on fresh products, grocery, detergents/paper
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
@@ -12167,7 +12167,7 @@ I attempted to predict Grocery sales and my DTR scored a ~0.775. That's a relati
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Produce a scatter matrix for each pair of features in the data</span>
@@ -13631,7 +13631,7 @@ OVKGYRiGYRiGYRjL5P8Hlbw/WCOgmG0AAAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>The pair of features that appear to be most correlated are Grocery products to Detergents/Paper with some correlation also evident in the pairing of Grocery and Milk products and Detergents/Paper and Milk products. The data, however, is not normally distributed (most points lie closely grouped toward the lower bounds of the product sales) and likewise, there is some difficulty in visually parsing strong correlations between pairings, even in the most visually apparent correlation of Grocery with Detergents/Paper. That said, Milk's correlation to both Detergents/Paper and Grocery may make it a good predictor of both and knowing that those two categories are themselves correlated, we may be able to remove both and use Milk as a proxy for predictions. Milk is thus highly relevant in my opinion.</p>
+<p>The pair of features that appear to be most correlated are Grocery products to Detergents/Paper with some correlation also evident in the pairing of Grocery and Milk products and Detergents/Paper and Milk products. The data, however, is not normally distributed (most points lie closely grouped toward the lower bounds of the product sales) and likewise, there is some difficulty in visually parsing strong correlations between pairings, even in the most visually apparent correlation of Grocery with Detergents/Paper. That said, Grocery's strong correlation to Detergents/Paper and, secondarily, to Milk may make sales in those product categories good predictors of Grocery sales. Accordingly, we can safely remove Grocery products as a feature, in my opinion, and rest easy that sales of Milk and Detergent/Paper will provide a good proxy for Grocery sales as well.</p>
 
 </div>
 </div>
@@ -13663,7 +13663,7 @@ OVKGYRiGYRiGYRjL5P8Hlbw/WCOgmG0AAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Scale the data using the natural logarithm</span>
@@ -17102,7 +17102,7 @@ DIZVwf8Dg6CLV/mtF5UAAAAASUVORK5CYII=
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display the log-transformed sample data</span>
@@ -17193,7 +17193,7 @@ Once you have performed this implementation, the dataset will be stored in the v
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># For each feature find the data points with extreme high or low values</span>
@@ -17898,7 +17898,7 @@ Yes, there were five data points by my count that were definable as outliers for
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
@@ -18272,7 +18272,7 @@ Nearly 0.71 or 71% of the total variance is explained by the first and second pr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display sample log-data after having a PCA transformation applied</span>
@@ -18360,7 +18360,7 @@ Nearly 0.71 or 71% of the total variance is explained by the first and second pr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Apply PCA by fitting the good data with only two dimensions</span>
@@ -18394,7 +18394,7 @@ Nearly 0.71 or 71% of the total variance is explained by the first and second pr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display sample log-data after applying PCA transformation in two dimensions</span>
@@ -18461,7 +18461,7 @@ Nearly 0.71 or 71% of the total variance is explained by the first and second pr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Create a biplot</span>
@@ -18476,11 +18476,11 @@ Nearly 0.71 or 71% of the total variance is explained by the first and second pr
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[13]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x116614c90&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1131e2710&gt;</pre>
 </div>
 
 </div>
@@ -19611,7 +19611,7 @@ REREREREPoxJHRERERERkQ9jUkdEREREROTD/j+v41ZchJKQMAAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
@@ -19687,7 +19687,7 @@ REREREREPoxJHRERERERkQ9jUkdEREREROTD/j+v41ZchJKQMAAAAABJRU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display the results of the clustering from implementation</span>
@@ -20354,7 +20354,7 @@ AB2HQAgAAABAxyEQAgAAANBxCIQAAAAAdJz/Hw6bEKSamHfsAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Inverse transform the centers</span>
@@ -20424,11 +20424,11 @@ AB2HQAgAAABAxyEQAgAAANBxCIQAAAAAdJz/Hw6bEKSamHfsAAAAAElFTkSuQmCC
 
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[23]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1168a7890&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x11336c0d0&gt;</pre>
 </div>
 
 </div>
@@ -20697,7 +20697,7 @@ MCWl9GFW9iWgVUppVk6Dk1Tw7KMkSao9k1pJkiRJUt7ym1pJkiRJUt4yqZUkSZIk5S2TWkmSJElS
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display the predictions</span>
@@ -20842,7 +20842,7 @@ dtype: float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Display the clustering results based on &#39;Channel&#39; data</span>
